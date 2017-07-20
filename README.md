@@ -26,12 +26,16 @@ Ressources
 
 The installated packages are:
 
-* apache webserver using
+* **apache webserver** using
 
 > sudo apt-get apache2
 
-* ws
+* **mod_wsgi** using
 
+> sudo apt-get install libapache2-mod-wsgi
+
+
+**SQLITE 3** and **GIT** were already installed
 
 Server IP Address & Ports:
 ----
@@ -46,7 +50,9 @@ The IP Address is
 The __[uncomplicated Firewall](https://wiki.ubuntu.com/UncomplicatedFirewall)__ was setup and allows the access via the following three ports.
 
 > SSH: **2200**
+>
 > HTTP: 80
+>
 > NTP: 123
 
 **!!! SSH port is not standart !!!**
@@ -73,8 +79,9 @@ How to use
 
 Repository
 ----
-* the [working project](https://github.com/guillaumesimler/nanofsp9)
-* the [initial project](https://github.com/guillaumesimler/nanofsp9)
+* the [server configuration project](https://github.com/guillaumesimler/nanofsp9)
+* the [webapp project](https://github.com/guillaumesimler/nanofsp9-support)
+* ots [initial project](https://github.com/guillaumesimler/nanofsp4)
 
 License
 ----
