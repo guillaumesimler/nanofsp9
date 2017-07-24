@@ -127,6 +127,19 @@ and to [catalog.conf]()
 > </VirtualHost>
 > 
 
+Remote access to postgresql suppressed changing
+
+>
+> sudo nano /etc/postgresql/9.5/main/pg_hba.conf
+>
+
+and changing the file to
+
+>
+>local   all             postgres                                peer
+> local   all             all                                     peer
+>
+
 How to use
 ----
 
