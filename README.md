@@ -34,8 +34,16 @@ The installated packages are:
 
 > sudo apt-get install libapache2-mod-wsgi
 
+* **postgresql** using
 
-**SQLITE 3** and **GIT** were already installed
+> sudo apt-get install postgresql
+
+* **python pip install** using
+
+> sudo apt-get install python-pip 
+
+With the pip install several elements were updated
+
 
 Server IP Address & Ports:
 ----
@@ -72,9 +80,66 @@ He/she can access the server using own SSH Keys stored on the [github repo](http
 
 The connection **must occur on port __2200__** 
 
+Config files
+----
+
+The config files are attached in this repo. Please find 
+
+The details to [catalog.wsgi]()
+
+>
+> import sys
+> import logging
+> logging.basicConfig(stream=sys.stderr)
+> sys.path.insert(0, "/var/www/catalog/")
+> from catalog import app as application
+> application.secret_key= 'lavieestbelle'
+>
+and to [catalog.conf]()
+>
+> <VirtualHost *:80>
+>     ServerName 35.157.229.177
+>     ServerAdmin guillaume.simler@gmail.com
+> 
+>     WSGIScriptAlias / /var/www/catalog/catalog.wsgi
+>     <Directory /var/www/catalog/catalog>
+>         WSGIProcessGroup project
+>         WSGIApplicationGroup %{GLOBAL}
+>         Order deny,allow
+>         Allow from all
+>     </Directory>
+> 
+>    Alias /static /var/www/catalog/catalog/static
+>     <Directory /var/www/catalog/catalog/static>
+>         Order deny,allow
+>         Allow from all
+>     </Directory>
+>
+>     <Directory /var/www/catalog/catalog/.git>
+>         Order deny,allow
+>         Deny from all
+>     </Directory>
+>     
+>     ErrorLog ${APACHE_LOG_DIR}/error.log
+>     LogLevel warn
+>     CustomLog ${APACHE_LOG_DIR}/access.log combined
+> 
+> </VirtualHost>
+> 
 
 How to use
 ----
+
+The usage and aim to the website can be read in the [initial readme](https://github.com/guillaumesimler/nanofsp4)
+
+The changes are described in the [following readme](https://github.com/guillaumesimler/nanofsp9-support)
+
+
+Bugs 
+----
+
+
+If bugs are reported, they are discussed [here](https://github.com/guillaumesimler/nanofsp9-support)/issues)
 
 
 Repository
